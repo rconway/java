@@ -24,6 +24,10 @@ dependencies {
     // This dependency is found on compile classpath of this component and consumers.
     implementation 'com.google.guava:guava:27.0.1-jre'
 
+    // javalin framework
+    implementation 'io.javalin:javalin:2.7.0'
+    implementation 'org.slf4j:slf4j-simple:1.7.25'
+
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
 }
