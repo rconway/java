@@ -12,6 +12,9 @@ plugins {
 
     // Apply the application plugin to add support for building an application
     id 'application'
+
+    // docker build and push
+    id "com.palantir.docker" version "0.21.0"
 }
 
 repositories {
@@ -30,6 +33,19 @@ dependencies {
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
+}
+
+docker {
+    //name 'hub.docker.com/rconway/javarest:0.1'
+    name 'docker.io/rconway/javarest:0.1'
+    //tag 'myRegistry', 'my.registry.com/username/my-app:version'
+    tag 'latest', 'docker.io/rconway/javarest:latest'
+    //dockerfile file('Dockerfile')
+    files tasks.distTar.outputs
+    //buildArgs([BUILD_VERSION: 'version'])
+    //labels(['key': 'value'])
+    pull true
+    //noCache false
 }
 
 // Define the main class for the application
